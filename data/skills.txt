@@ -1,0 +1,42 @@
+python
+sql
+aws
+machine learning
+data analysis
+pandas
+numpy
+excel
+power bi
+deep learning
+data structures
+apis
+async programming
+machine learning
+nlp
+generative ai
+fastapi
+flask
+docker
+active directory
+ldap
+azure
+javascript
+html
+angular
+machine learning
+artificial intelligence
+ai
+iot
+blockchain
+service portal
+performance analytics
+python
+c++
+c
+java
+machine learning
+deep learning
+artificial intelligence
+ai
+pytorch
+tensorflow
