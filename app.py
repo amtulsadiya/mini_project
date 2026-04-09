@@ -134,7 +134,7 @@ if st.button("Analyze"):
         static_job_skills = extract_skills(job_words, skills_list)
 
         # -----------------------------
-        # 🔥 STEP 2: DYNAMIC (optional)
+        #  STEP 2: DYNAMIC (optional)
         # -----------------------------
         common_useless = {'looking', 'candidate', 'experience'}
 
@@ -144,7 +144,7 @@ if st.button("Analyze"):
         ]
 
         # -----------------------------
-        # 🔥 STEP 3: CLEAN SKILLS
+        #  STEP 3: CLEAN SKILLS
         # -----------------------------
         def clean_skills(skills):
             final = []
@@ -159,7 +159,7 @@ if st.button("Analyze"):
         # job_skills = final_skill_filter(job_skills)
 
         # -----------------------------
-        # 🚀 STEP 4: SEMANTIC MATCHING
+        #  STEP 4: SEMANTIC MATCHING
         # -----------------------------
         matched_skills, missing_skills = semantic_skill_match(
             resume_skills=resume_words,   # use full resume context
@@ -175,13 +175,13 @@ if st.button("Analyze"):
         similarity_score = compute_similarity(resume_words, job_words)
 
         # -----------------------------
-        # 🧪 DEBUG (optional)
+        #  DEBUG (optional)
         # -----------------------------
         st.write("DEBUG Job Skills Before Filter:", static_job_skills + dynamic_job_skills)
         st.write("DEBUG After Clean:", job_skills)
 
         # -----------------------------
-        # 📊 OUTPUT
+        #  OUTPUT
         # -----------------------------
         st.subheader("Results")
 
