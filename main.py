@@ -20,11 +20,11 @@ skills_list = load_skills("data/skills.txt")
 resume_words = preprocess(resume_text)
 job_words = preprocess(job_text)
 
-# 🔥 STATIC SKILL EXTRACTION (Accurate)
+#  STATIC SKILL EXTRACTION (Accurate)
 static_job_skills = extract_skills(job_words, skills_list)
 static_resume_skills = extract_skills(resume_words, skills_list)
 
-# 🔥 DYNAMIC KEYWORDS (Flexible)
+#  DYNAMIC KEYWORDS (Flexible)
 common_useless = {
     'looking', 'candidate', 'experience',
     'must', 'strong', 'good', 'have',
@@ -40,7 +40,7 @@ dynamic_job_skills = [
     and len(word) > 2
     and word.isalpha()
 ]
-# 🔥 HYBRID COMBINATION
+#  HYBRID COMBINATION
 # Remove words that are part of longer phrases
 def clean_skills(skills):
     final_skills = []
@@ -50,7 +50,7 @@ def clean_skills(skills):
             final_skills.append(skill)
     
     return final_skills
-# 🔥 HYBRID COMBINATION
+# HYBRID COMBINATION
 
 # Remove words that are part of longer phrases
 def clean_skills(skills):
