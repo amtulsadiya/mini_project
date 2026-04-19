@@ -174,16 +174,16 @@ if st.button("Analyze"):
 
         # Match Level (instead of showing raw similarity)
         if similarity_score > 0.6:
-        level = "High Match "
+         level = "High Match "
         elif similarity_score > 0.3:
-        level = "Medium Match "
+         level = "Medium Match "
         else:
-        level = "Low Match "
+         level = "Low Match "
         
         #  DEBUG (optional)
         
-        st.write("DEBUG Job Skills Before Filter:", static_job_skills + dynamic_job_skills)
-        st.write("DEBUG After Clean:", job_skills)
+        # st.write("DEBUG Job Skills Before Filter:", static_job_skills + dynamic_job_skills)
+        # st.write("DEBUG After Clean:", job_skills)
 
         
         #  OUTPUT
