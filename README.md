@@ -24,10 +24,10 @@ The **Skill Gap Analyzer** helps job seekers understand how closely their resume
 * Streamlit
 
 ## AI / Logic Layer
-Skill Extraction (custom keyword + static skill matching)
-Semantic Skill Matching ( semantic_skill_match)
-Keyword Extraction (dynamic skill detection)
-Text Preprocessing Pipeline
+->Skill Extraction (custom keyword + static skill matching)
+->Semantic Skill Matching ( semantic_skill_match)
+->Keyword Extraction (dynamic skill detection)
+->Text Preprocessing Pipeline
 
 ## How It Works
 
@@ -57,6 +57,7 @@ streamlit run main.py
 ## Example Output
 Matched Skills:
 ["python","nlp"]
+
 Missing Skills:
 ["tensorflow","generative ai","pytorch"]
 Skill Match Score: 40.0 %
