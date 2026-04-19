@@ -128,24 +128,22 @@ if st.button("Analyze"):
         resume_words = preprocess(resume_text)
         job_words = preprocess(job_text)
 
-        # -----------------------------
-        # 🔥 STEP 1: STATIC SKILLS
-        # -----------------------------
+        
+        # STEP 1: STATIC SKILLS
+      
         static_job_skills = extract_skills(job_words, skills_list)
 
-        # -----------------------------
         #  STEP 2: DYNAMIC (optional)
-        # -----------------------------
+        
         common_useless = {'looking', 'candidate', 'experience'}
 
         dynamic_job_skills = [
             word for word in extract_keywords(job_words)
             if word not in common_useless and len(word) > 2
         ]
-
-        # -----------------------------
+      
         #  STEP 3: CLEAN SKILLS
-        # -----------------------------
+       
         def clean_skills(skills):
             final = []
             for skill in skills:
@@ -158,9 +156,8 @@ if st.button("Analyze"):
         # job_skills = clean_skills(list(set(static_job_skills + dynamic_job_skills)))
         # job_skills = final_skill_filter(job_skills)
 
-        # -----------------------------
         #  STEP 4: SEMANTIC MATCHING
-        # -----------------------------
+        
         matched_skills, missing_skills = semantic_skill_match(
             resume_skills=resume_words,   # use full resume context
             job_skills=job_skills
@@ -172,25 +169,40 @@ if st.button("Analyze"):
         score = (len(matched_skills) / len(job_skills)) * 100 if job_skills else 0
 
         # Similarity
+        # Similarity
         similarity_score = compute_similarity(resume_words, job_words)
 
-        # -----------------------------
+        # Match Level (instead of showing raw similarity)
+        if similarity_score > 0.6:
+        level = "High Match "
+        elif similarity_score > 0.3:
+        level = "Medium Match "
+        else:
+        level = "Low Match "
+        
         #  DEBUG (optional)
-        # -----------------------------
+        
         st.write("DEBUG Job Skills Before Filter:", static_job_skills + dynamic_job_skills)
         st.write("DEBUG After Clean:", job_skills)
 
-        # -----------------------------
+        
         #  OUTPUT
-        # -----------------------------
+        
         st.subheader("Results")
 
         st.write("Matched Skills:", matched_skills)
-        st.write("Job Skills:", job_skills)
+        # st.write("Job Skills:", job_skills)
         st.write("Missing Skills:", missing_skills)
 
         st.write("Skill Match Score:", round(score, 2), "%")
-        st.write("Cosine Similarity:", round(similarity_score, 3))
+        # st.write("Overall Match Level:", level)
+        # Show match level (colored)
+        if similarity_score > 0.6:
+          st.success("Overall Match Level: High Match ")
+        elif similarity_score > 0.3:
+          st.warning("Overall Match Level: Medium Match ")
+        else:
+          st.error("Overall Match Level: Low Match ")
 
     else:
         st.warning("Please upload resume and enter job description")
